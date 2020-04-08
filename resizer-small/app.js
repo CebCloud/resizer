@@ -33,7 +33,7 @@ function uploadToS3(base64data){
     });
 }
 
-amqp.connect('amqp://'+rConfig.username+':'+rConfig.password+'@'+rConfig.host+':'+rConfig.port, function(err, conn) {
+amqp.connect(`amqp://${rConfig.username}:${rConfig.password}@${rConfig.host}:${rConfig.port}`, function(err, conn) {
     conn.createChannel(function(err, ch) {
         var q = 'task_queue';
         ch.assertQueue(q, {durable: true});
